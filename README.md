@@ -2,7 +2,7 @@
 
 Docker is a system which provide us functionality to divide our services and software in containerized system. 
 
-## CMD Explanation
+### Deploy a Nginx Server
 
 ```docker
 docker container run --publish 80:80 --detach nginx
@@ -14,6 +14,7 @@ docker container run --publish 80:80 --detach nginx
 *   Since when we run a server it accepts and sends requests in a for loop and wait for the network for an activity, as such these containers dont stop automatically as such we neee to use   ```--detach``` flag to continue running container in background.
 *   Now its time to specify the container image name and thats it ```nginx```.
 
+### To List all the Containers
 ```docker
 docker ps -a
 CONTAINER ID        IMAGE               COMMAND                  CREATED             STATUS              PORTS                NAMES
@@ -24,10 +25,35 @@ c7fb1939cc25        nginx               "nginx -g 'daemon of…"   11 seconds ag
 * The container id is always created for us and the name is also required as unique.
 * If we dont specify the name it picks a name from an open source list of names.
 * The names are of the popular hackers, scientists, researchers and lot more and its interesting sometimes.
+### To Stop a Running Container
 ```docker
 docker conatiner stop 69049265872
 ```
 *   In order to stop a container we need to use the ```stop``` keyword.
 *   Next to it is the container ID.
-
+### To Add a custom name to the Container
+```docker
+docker container run --publish 80:80 --detach --name webhost nginx
+```
+* To add your own name in a container use the ```--name``` flag and pass the single word unique name for the container.
+### To get logs of a container
+```docker
+docker conatiner logs webhost
+```
+* To get logs of a background running container use the keyword ```logs``` after conatiner and then specify the conatiner name at the end.
+### To get the list of running services in the container
+```docker
+docker conatiner top webhost
+```
+*   This is a direct command to list the number of processes running inside the container for now.
+### To Delete a  Container
+```docker
+docker rm CONTAINER_ID
+```
+* To Delete a container or image we use the ```rm``` command and pass the container id or name
+### To Delete forcefully
+```docker
+docker rm -f CONTAINER_ID 
+```
+* Just add the ```-f``` flag this will stop and then delete the conatiner.
 

@@ -56,4 +56,26 @@ docker rm CONTAINER_ID
 docker rm -f CONTAINER_ID 
 ```
 * Just add the ```-f``` flag this will stop and then delete the conatiner.
+## Conatiners vs VM
+* Containers are just processes.
+* They are limited to what they can access
+* Exit when they are stopped.
 
+### Its simple to launch a mongo container
+```docker
+docker run --name mongo -d mongo
+```
+### Pass Enviorment variables while creating the containers
+```docker
+docker run mysql -e MYSQL_RANDOM_ROOT_PASSWORD=yes 
+```
+* This will add up the enviourment variable in the container image using ```-e``` flag.
+### Whats going on in the containers
+```docker
+docker container inspect CONTAINER_NAME
+```
+* To display the container configuration we use the ```inspect``` keyword.
+```docker
+docker container stats CONTAINER_NAME
+```
+* To display the streamed statistics of a container use ```stats```

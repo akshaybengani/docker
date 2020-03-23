@@ -79,3 +79,8 @@ docker container inspect CONTAINER_NAME
 docker container stats CONTAINER_NAME
 ```
 * To display the streamed statistics of a container use ```stats```
+### Getting inside the container
+```docker
+docker container run -it --name corona nginx bash 
+```
+* 
